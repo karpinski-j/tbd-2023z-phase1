@@ -70,6 +70,8 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     ![dataproc disks resources](doc/figures/2023z/10-costs-dataproc-disks.png)
     ![dataproc CE resources](doc/figures/2023z/10-costs-dataproc-ce.png)
 
+    Data sourced from [GCP Cost Calculator](https://cloud.google.com/compute/all-pricing) with region set to `eu-west1`.
+
     Dataproc costs are per hour, the rest are per 4.345 hours (1h/1w/1m).
 
     The adjusted costs are:
