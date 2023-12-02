@@ -64,31 +64,51 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 10. Some resources are not supported by infracost yet. Estimate manually total costs of infrastructure based on pricing costs for region used in the project. Include costs of cloud composer, dataproc and AI vertex workbanch and them to infracost estimation.
 
-    ***place your estimation and references here***
+    ![composer resources](docs/figures/2023z/10-costs-composer.png)
+    ![vertex AI resources](docs/figures/2023z/10-costs-vertexai.png)
+    ![dataproc resources](docs/figures/2023z/10-costs-dataproc.png)
+    ![dataproc disks resources](docs/figures/2023z/10-costs-dataproc-disks.png)
+    ![dataproc CE resources](docs/figures/2023z/10-costs-dataproc-ce.png)
 
-    ***what are the options for cost optimization?***
+    Dataproc costs are per hour, the rest are per 4.345 hours (1h/1w/1m).
+
+    The adjusted costs are:
+
+    - composer: `2.52 / 4.345 = ~0.58`
+    - vertex AI: `0.37 / 4.345 = ~0.09`
+    - dataproc: `0.06`
+    - dataproc disks: `0.02`
+    - dataproc CE: `0.11 + 0.23 = 0.34`
+
+    Which comes out to approximately 1.09 USD per hour. This assumes normal worker nodes for dataproc.
+
+    [INSERT COSTS TALLIED WITH INFRACOST OUTPUT HERE]
+
+    It is required that dataproc has at least one normal worker node, and all other nodes can be spot nodes. To this end, it is possible to optimize dataproc costs by changing all but one node types to spot, in our case making it 1 normal 1 spot worker, reducing the hourly cost from $0.34 to $0.27. The master node is always a normal node, and this cannot be optimized by means other than using a cheaper node type, e.g. a e2-highcpu which is cheaper, but comes with less RAM (2G instead of 8G).
+
+    The overall cost optimization strategy would be to minimize runtime of all components or optimizing the amount of allocated storage to dataproc and composer instances. Further option is to automatically destroy all compute resources once a training session is over.
     
-12. Create a BigQuery dataset and an external table
+11. Create a BigQuery dataset and an external table
     
     ***place the code and output here***
    
     ***why does ORC not require a table schema?***
   
-13. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
+12. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
 
     ***place the screenshot of notebook here***
    
-14. Find and correct the error in spark-job.py
+13. Find and correct the error in spark-job.py
 
     ***describe the cause and how to find the error***
 
-15. Additional tasks using Terraform:
+14. Additional tasks using Terraform:
 
     1. Add support for arbitrary machine types and worker nodes for a Dataproc cluster and JupyterLab instance
 
     ***place the link to the modified file and inserted terraform code***
     
-    3. Add support for preemptible/spot instances in a Dataproc cluster
+    2. Add support for preemptible/spot instances in a Dataproc cluster
 
     ***place the link to the modified file and inserted terraform code***
     
