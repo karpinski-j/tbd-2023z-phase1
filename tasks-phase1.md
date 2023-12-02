@@ -58,9 +58,13 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 9. Add costs by entering the expected consumption into Infracost
 
-   ***place the expected consumption you entered here***
+   Considering the current usage in the project, the following values were chosen:
 
-   ***place the screenshot from infracost output here***
+   ![infracost inputs](doc/figures/2023z/09-infracost-input.png)
+
+   After punching them into Infracost, the following result was obtained:
+
+   ![infracost tally](doc/figures/2023z/09-infracost-breakdopw.png)
 
 10. Some resources are not supported by infracost yet. Estimate manually total costs of infrastructure based on pricing costs for region used in the project. Include costs of cloud composer, dataproc and AI vertex workbanch and them to infracost estimation.
 
@@ -84,7 +88,13 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     Which comes out to approximately 1.09 USD per hour. This assumes normal worker nodes for dataproc.
 
-    [INSERT COSTS TALLIED WITH INFRACOST OUTPUT HERE]
+    An hour is about as much as we expect to use.
+
+    Adding the Infracost estimate of $0.23, we get estimated $1.31 per month.
+
+    This is not very far off the costs incurred so far throughout the project:
+
+    ![billing cost](doc/figures/2023z/10-costs-actual.png)
 
     It is required that dataproc has at least one normal worker node, and all other nodes can be spot nodes. To this end, it is possible to optimize dataproc costs by changing all but one node types to spot, in our case making it 1 normal 1 spot worker, reducing the hourly cost from $0.34 to $0.27. The master node is always a normal node, and this cannot be optimized by means other than using a cheaper node type, e.g. a e2-highcpu which is cheaper, but comes with less RAM (2G instead of 8G).
 
