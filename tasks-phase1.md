@@ -64,11 +64,11 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 10. Some resources are not supported by infracost yet. Estimate manually total costs of infrastructure based on pricing costs for region used in the project. Include costs of cloud composer, dataproc and AI vertex workbanch and them to infracost estimation.
 
-    ![composer resources](docs/figures/2023z/10-costs-composer.png)
-    ![vertex AI resources](docs/figures/2023z/10-costs-vertexai.png)
-    ![dataproc resources](docs/figures/2023z/10-costs-dataproc.png)
-    ![dataproc disks resources](docs/figures/2023z/10-costs-dataproc-disks.png)
-    ![dataproc CE resources](docs/figures/2023z/10-costs-dataproc-ce.png)
+    ![composer resources](doc/figures/2023z/10-costs-composer.png)
+    ![vertex AI resources](doc/figures/2023z/10-costs-vertexai.png)
+    ![dataproc resources](doc/figures/2023z/10-costs-dataproc.png)
+    ![dataproc disks resources](doc/figures/2023z/10-costs-dataproc-disks.png)
+    ![dataproc CE resources](doc/figures/2023z/10-costs-dataproc-ce.png)
 
     Dataproc costs are per hour, the rest are per 4.345 hours (1h/1w/1m).
 
