@@ -41,8 +41,10 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     
 
 6. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
+    ![image](https://github.com/karpinski-j/tbd-2023z-phase1/assets/83401763/07b87418-3bb3-4f4f-9c10-c9d16e0b0648)
 
-    ***describe one selected module and put the output of terraform graph for this module here***
+    Dataproc is a fully managed Hadoop and Spark service that simplifies data processing. Automation allows for the quick creation and management of clusters, enabling you to focus on your data and applications, and save money through the option to turn clusters on and off.     
+    Additionally, Dataproc makes it easier to use Hadoop and Spark, reduces costs, is scalable, reduces complexity, and enhances performance.
    
 7. Reach YARN UI
    
@@ -69,10 +71,17 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     ***what are the options for cost optimization?***
     
 12. Create a BigQuery dataset and an external table
-    
-    ***place the code and output here***
-   
-    ***why does ORC not require a table schema?***
+    Code: 
+    ```
+    bq mk my_dataset
+    bq mk --table --external_table_definition=@ORC=gs://bucket_orc/orc-file-11-format.orc dataset.table_1
+    bq show dataset.table_1 
+    ```
+    ![image](https://github.com/karpinski-j/tbd-2023z-phase1/assets/83401763/8a032fe7-6d27-4292-8efb-34484955641a)
+    ![image](https://github.com/karpinski-j/tbd-2023z-phase1/assets/83401763/5a8583f2-46bd-47b8-b7e1-8a5c1c5b7af3)
+
+    Table scheme is already provided in orc file.
+    ORC also stores metadata about the file, such as the schema, at the end of the file.
   
 13. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
 
